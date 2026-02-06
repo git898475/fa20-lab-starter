@@ -1,4 +1,4 @@
-1.
-2.
-3.
-4.
+1.grep -r <keyword>
+2.ps aus \ ps -ef
+3.kill <process ID>
+4.diff <file1> <file2>
