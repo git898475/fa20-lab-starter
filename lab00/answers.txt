@@ -1,4 +1,9 @@
-1.grep -r <keyword>
-2.ps aus \ ps -ef
-3.kill <process ID>
-4.diff <file1> <file2>
+1.ls -l
+2.mv <source_directory>/file <target_directory>/
+3.chmod permissions <filename>
+4.pwd  //print working directory
+5.ping hostname
+6.grep -r <keyword>
+7.ps aus \ ps -ef
+8.kill <process ID>
+9.diff <file1> <file2>
