@@ -1,7 +1,8 @@
-1.
-2.
-3.
-4.
-5.
-6.
-7.
+1.clean,为删除所有对象文件（.o）、二进制程序和临时文件
+2.all: $(BINARIES)用于目标编译所有程序，依赖BINARIES中定义的所有程序
+3.CC=gcc
+4.-std=c99
+5.$(FOO)
+6.macOS
+7.$(LFSR_PROG): $(LFSR_OBJS)
+	$(CC) $(CFLAGS) -g -o $(LFSR_PROG) $(LFSR_OBJS) $(LDFLAGS)
