@@ -1,0 +1,11 @@
+Question：
+1.What caused the errors in simple_fn, naive_pow, and inc_arr that were reported by the Venus CC checker?
+2.In RISC-V, we call functions by jumping to them and storing the return address in the ra register. Does calling convention apply to the jumps to the naive_pow_loop or naive_pow_end labels?
+3.Why do we need to store ra in the prologue for inc_arr, but not in any other function?
+4.Why wasn’t the calling convention error in helper_fn reported by the CC checker? (Hint: it’s mentioned above in the exercise instructions.)
+
+Solution：
+1.simple_fn：使用了未初始化的寄存器t0中的垃圾值；naive_pow：callee-saved寄存器没有被提前保存就使用了，并在之后无法恢复；inc_arr：同上
+2.不适用，为分支跳转不是函数调用，无需保存和更新返回地址信息
+3.因为inc_arr存在nested call（嵌套调用），在调用子函数前ra的值会被覆盖而丢失，必须在此之前进行保存才能在调用后保留有原来的返回地址信息。
+4.Venus’s calling convention checker will not report all calling convention bugs; it is intended to be used primarily as a sanity check. Most importantly, it will only look for bugs in functions that are exported with the .globl directive - the meaning of .globl is explained in more detail in the Venus reference.即，重点检查.global标记的全局函数，对于辅助函数不检查。

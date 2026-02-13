@@ -1,0 +1,14 @@
+question:
+1.The register representing the variable k.
+2.The register representing the variable sum.
+3.The registers acting as pointers to the source and dest arrays.
+4.The assembly code for the loop found in the C code.
+5.How the pointers are manipulated in the assembly code.
+
+solution:
+1.t0
+2.s0
+3.source: s1,dest: s2
+4.from line44 to line62
+5.slli s3 t0 2将k乘4，后加入到source指针上，进行source的遍历
+
