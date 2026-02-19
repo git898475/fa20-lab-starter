@@ -1,0 +1,7 @@
+1.non_pipelined: T_min = clk_to_q + delay_mul + delay_add + set_up = 10 + 60 + 45 + 10 = 125ns
+2.pipelined:  ①clk_q + delay_mul + set_up = 10 + 60 +10 = 80ns；②clk_q + delay_add + set_up = 10 + 45 +10 = 65ns。
+取最大者为80ns
+
+3.why such “bubbles” are unnecessary for this particular circuit？
+	因为运算本身是“乘之后加”，但这两个操作被安排在不同的流水线阶段，并且数据流是流水的独立数据，不是反馈依赖。
+
