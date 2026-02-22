@@ -1,24 +1,24 @@
 Scenario 1
-    1.
-    2.
-    3.
+    1.Because [step size] in bytes is exactly equal to [block size] in bytes.
+    2.0%
+    3.①[step size]减小到8以下，②option变为1，③array减小到32bytes
 
 Scenario 2
-    1.
-    2.
-    3.
+    1.2
+    2.MHHH
+    3.100%
 
 Scenario 3
-    1.
-    2.
-    3.
-    4.
-    5.
+    1.50%，0%，50%
+    2.32，16，
+    3.16，L1miss时才有L2的access
+    4.增加rep count就可以
+    5.+ = = =
 
 --- lines below are ignored by the AG ---
 
-Checkoff Question 1:
-Checkoff Question 2:
-Checkoff Question 3:
-Checkoff Question 4:
-Checkoff Question 5:
+Checkoff Question 1:重复多少次，始终无法hit
+Checkoff Question 2:如上所示
+Checkoff Question 3:因为step = 2，而一个block只能容纳4个int，故连续四次访问会在同一个block中，其中第一次miss其余三次hit，hit rate = 75%
+Checkoff Question 4:因为cache和array的大小一样大，第一次访问后所有array内容已经存在了cache其中
+Checkoff Question 5:一次只访问cache大小的数据，随后将所有操作施加其上。

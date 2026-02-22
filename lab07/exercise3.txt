@@ -1,20 +1,20 @@
 --- not autograded ---
 
 Part 1
-    blocksize = 20, n = 100: 
-    blocksize = 20, n = 1000: 
-    blocksize = 20, n = 2000: 
-    blocksize = 20, n = 5000: 
-    blocksize = 20, n = 10000: 
+    blocksize = 20, n = 100: Testing naive transpose: 0.006 milliseconds；Testing transpose with blocking: 0.006 milliseconds
+    blocksize = 20, n = 1000: Testing naive transpose: 0.871 milliseconds；Testing transpose with blocking: 0.741 milliseconds
+    blocksize = 20, n = 2000: Testing naive transpose: 19.118 milliseconds；Testing transpose with blocking: 5.172 milliseconds
+    blocksize = 20, n = 5000: Testing naive transpose: 259.115 milliseconds；Testing transpose with blocking: 29.476 milliseconds
+    blocksize = 20, n = 10000: Testing naive transpose: 1095.94 milliseconds；Testing transpose with blocking: 149.687 milliseconds
 
-    Checkoff Question 1:
-    Checkoff Question 2:
+    Checkoff Question 1:在n很大，且远大于blocksize时
+    Checkoff Question 2:矩阵较小时，cache可以缓存很多数据，miss rate较小，概率较小成本较低；但矩阵很大时，naive版本的miss rate明显升高，blocking能够很好地利用局部性减少miss开销，性能显著上升。
 
 Part 2
-    blocksize = 50, n = 10000:
-    blocksize = 100, n = 10000:
-    blocksize = 500, n = 10000:
-    blocksize = 1000, n = 10000:
-    blocksize = 5000, n = 10000:
+    blocksize = 50, n = 10000:Testing naive transpose: 1114.3 milliseconds；Testing transpose with blocking: 101.692 milliseconds
+    blocksize = 100, n = 10000:Testing naive transpose: 1072.54 milliseconds；Testing transpose with blocking: 80.342 milliseconds
+    blocksize = 500, n = 10000:Testing naive transpose: 1111.78 milliseconds；Testing transpose with blocking: 93.242 milliseconds
+    blocksize = 1000, n = 10000:Testing naive transpose: 1109.27 milliseconds；Testing transpose with blocking: 124.366 milliseconds
+    blocksize = 5000, n = 10000:Testing naive transpose: 1093.28 milliseconds；Testing transpose with blocking: 968.823 milliseconds
 
-    Checkoff Question 3:
+    Checkoff Question 3:随着blocksize的增大，性能先略微变好在变差。原因为blocksize越接近cache的大小，循环次数越少，且能够更好地利用局部性。

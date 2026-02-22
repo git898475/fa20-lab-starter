@@ -1,8 +1,16 @@
 1.
-2.
+步长：	   C A B
+	 ①ijk：0 n 1
+	 ②ikj：n 0 n
+	 ③jik:  0 n 1
+	 ④jki:  1 1 0
+	 ⑤kij:  n 0 n
+	 ⑥kji:  1 1 0
+	其中，jki和kji的顺序速度最快
+2.ikj 和 kij的性能最差
 
 --- lines below are ignored by the AG ---
 
 Checkoff Question 1:
 Checkoff Question 2:
-Checkoff Question 3:
+Checkoff Question 3:最好是先对A和C的行进行遍历
