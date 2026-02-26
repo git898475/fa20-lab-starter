@@ -1,0 +1,10 @@
+Q1：Four floating point divisions in single precision (i.e. float)
+S1：#include <xmmintrin.h>__m128 _mm_div_ps (__m128 a, __m128 b)
+_mm 是 SSE 指令集的前缀。div 表示除法操作。ps 表示 "Packed Single-precision"，即打包的单精度浮点数，意味着它对 128 位寄存器中的所有 4 个 32 位浮点数同时执行除法运算。
+
+Q2：Sixteen max operations over signed 8-bit integers (i.e. char)
+S2：_#include <smmintrin.h>__m128i _mm_max_epi8 (__m128i a, __m128i b)
+mm 是 SSE 指令集的前缀。max 表示最大值操作。epi8 表示 "Extended Packed Integer 8-bit"，即扩展打包的 8 位整数。它操作的是 128 位寄存器，可以一次性处理 16 个 8 位有符号整数，并返回两者中较大的值
+Q3：Arithmetic shift right of eight signed 16-bit integers (i.e. short)
+S3：#include <emmintrin.h>__m128i _mm_srai_epi16 (__m128i a, int imm8)      or     __m128i _mm_sra_epi16 (__m128i a, __m128i count)
+_mm 是 SSE 指令集的前缀。sra 表示 "Shift Right Arithmetic"，即算术右移（会复制符号位）。i 表示这是一个立即数（immediate）移位的版本（移位次数是编译时常量）。epi16 表示 "Extended Packed Integer 16-bit"，即扩展打包的 16 位整数，它对 128 位寄存器中的 8 个 16 位整数进行操作      
