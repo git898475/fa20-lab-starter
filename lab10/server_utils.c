@@ -253,22 +253,34 @@ void serve_forever(int *socket_number) {
 #ifdef PROC
       // PART 2 TASK: Implement forking
       /* YOUR CODE HERE */
-
-      if (/* YOUR CODE HERE */) {
+      pid_t child_pid;
+      child_pid = fork();
+      if (child_pid == 0/* YOUR CODE HERE */)
+      {
          // This line kills the child process if parent dies
          int r = prctl(PR_SET_PDEATHSIG, SIGTERM);
 
          /* YOUR CODE HERE */
          
+
          // These lines exit the current process with code 1 
          // 1) when there was an error in prctl, 2) when the parent has been killed
          if (r == -1 || getppid() != parent_pid) {
             perror(0);
             exit(1);
          }
-
+         close(*socket_number);
+         dispatch(client_socket_number);
+         exit(EXIT_SUCCESS);
          /* YOUR CODE HERE */
+      } else if (child_pid > 0){
+         close(client_socket_number);
+      } else{
+         perror("fork failed");
+         close(client_socket_number);
       }
+      //不，fork 方案不会增加实际计算时间。它只是通过并行处理，让多个请求的计算同时进行
+      
 #else
       dispatch(client_socket_number);
 #endif

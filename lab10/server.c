@@ -1,5 +1,7 @@
 #include "server_utils.h"
-
+int server_fd;
+int server_port = 8000;
+char *server_files_directory = "./files/";
 char *USAGE = "--files directory/ [--port 8000 --concurrency 5]\n";
 char *report = "report.txt";
 
